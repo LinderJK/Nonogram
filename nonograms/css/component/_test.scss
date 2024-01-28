@@ -1,8 +1,12 @@
 .game-container {
   display: grid;
+  gap: 1px;
+  border: 1px solid #000;
 
 }
-
 .game-item {
-
+  width: 70px;
+  height: 70px;
+  background-color: white;
+  border: 1px solid black;
 }

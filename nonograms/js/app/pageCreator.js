@@ -9,35 +9,52 @@ export class PageCreator {
       parent: this.body,
     },
     {
-      key: "nav",
+      key: "navbar",
       tagName: "nav",
       className: "navbar bg-body-tertiary",
       parent: "wrapper",
     },
+
     {
-      key: "button",
+      key: "button-game1",
       tagName: "button",
-      className: "navbar-toggler",
-      parent: "nav",
+      className: "btn btn-primary btn-game1",
+      parent: "navbar",
       attributes: [
         { name: "type", value: "button" },
-        { name: "data-bs-toggle", value: "collapse" },
-        { name: "data-bs-target", value: "#navbarNavAltMarkup" },
-        { name: "aria-controls", value: "navbarNavAltMarkup" },
+        {
+          name: "value",
+          value: "game1",
+        },
       ],
-      text: "dasddad",
+      text: "Game 1",
     },
     {
-      key: "grid-container",
+      key: "button-game2",
+      tagName: "button",
+      className: "btn btn-primary btn-game2",
+      parent: "navbar",
+      attributes: [
+        { name: "type", value: "button" },
+        {
+          name: "value",
+          value: "game2",
+        },
+      ],
+      text: "Game 2",
+    },
+    {
+      key: "game-container",
       tagName: "div",
-      className: "container game-container",
+      className: "container d-flex justify-content-center p-5",
       parent: "wrapper",
     },
+
     {
-      key: "select-difficulty",
-      tagName: "select",
-      className: "form-select",
-      parent: "nav",
+      key: "game-grid-field",
+      tagName: "div",
+      className: "game-container",
+      parent: "game-container",
     },
   ];
 

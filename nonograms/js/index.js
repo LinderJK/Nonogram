@@ -2,8 +2,9 @@ import { PageCreator } from "./app/pageCreator.js";
 import { Manager } from "./app/Manager.js";
 
 let manager = null;
-
-window.onload = start;
+window.addEventListener("DOMContentLoaded", (event) => {
+  start();
+});
 
 function start() {
   PageCreator.init();
