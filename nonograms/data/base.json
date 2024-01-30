@@ -1,0 +1,8 @@
+[
+  {
+    "key": "wrapper",
+    "tagName": "div",
+    "className": "wrapper",
+    "parent": "this.body"
+  }
+]

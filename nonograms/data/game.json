@@ -1,0 +1,14 @@
+[
+  {
+    "key": "game-container",
+    "tagName": "div",
+    "className": "container d-flex justify-content-center p-5",
+    "parent": "wrapper"
+  },
+  {
+    "key": "game-grid-field",
+    "tagName": "div",
+    "className": "game-container",
+    "parent": "game-container"
+  }
+]

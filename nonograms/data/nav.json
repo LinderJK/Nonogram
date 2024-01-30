@@ -1,0 +1,42 @@
+[
+  {
+    "key": "navbar",
+    "tagName": "nav",
+    "className": "navbar bg-body-tertiary",
+    "parent": "wrapper"
+  },
+  {
+    "key": "button-game1",
+    "tagName": "button",
+    "className": "btn btn-primary btn-game1",
+    "parent": "navbar",
+    "attributes": [
+      {
+        "name": "type",
+        "value": "button"
+      },
+      {
+        "name": "value",
+        "value": "game1"
+      }
+    ],
+    "text": "Game 1"
+  },
+  {
+    "key": "button-game2",
+    "tagName": "button",
+    "className": "btn btn-primary btn-game2",
+    "parent": "navbar",
+    "attributes": [
+      {
+        "name": "type",
+        "value": "button"
+      },
+      {
+        "name": "value",
+        "value": "game2"
+      }
+    ],
+    "text": "Game 2"
+  }
+]

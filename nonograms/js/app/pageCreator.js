@@ -8,57 +8,11 @@ export class PageCreator {
       className: "wrapper",
       parent: this.body,
     },
-    {
-      key: "navbar",
-      tagName: "nav",
-      className: "navbar bg-body-tertiary",
-      parent: "wrapper",
-    },
-
-    {
-      key: "button-game1",
-      tagName: "button",
-      className: "btn btn-primary btn-game1",
-      parent: "navbar",
-      attributes: [
-        { name: "type", value: "button" },
-        {
-          name: "value",
-          value: "game1",
-        },
-      ],
-      text: "Game 1",
-    },
-    {
-      key: "button-game2",
-      tagName: "button",
-      className: "btn btn-primary btn-game2",
-      parent: "navbar",
-      attributes: [
-        { name: "type", value: "button" },
-        {
-          name: "value",
-          value: "game2",
-        },
-      ],
-      text: "Game 2",
-    },
-    {
-      key: "game-container",
-      tagName: "div",
-      className: "container d-flex justify-content-center p-5",
-      parent: "wrapper",
-    },
-
-    {
-      key: "game-grid-field",
-      tagName: "div",
-      className: "game-container",
-      parent: "game-container",
-    },
   ];
 
-  static init() {
+  static async init() {
+    await this.jsonParse();
+    console.log(this.elementsToCreate);
     this.elementsToCreate.forEach((elementInfo) => {
       const elem = PageCreator.#createElement(elementInfo);
     });
@@ -66,9 +20,32 @@ export class PageCreator {
     PageCreator.#createPage();
   }
 
+  static async jsonParse() {
+    const jsonFiles = ["./data/nav.json", "./data/game.json"];
+
+    for (const jsonFilePath of jsonFiles) {
+      try {
+        const response = await fetch(jsonFilePath);
+        if (!response.ok) {
+          throw new Error(`not ok for file: ${jsonFilePath}`);
+        }
+        const data = await response.json();
+        this.elementsToCreate = [...this.elementsToCreate, ...data];
+        console.log(data);
+        console.log(this.elementsToCreate);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
+
   static #appendElement(element) {
     const parentElement = element.customParentElement;
-    parentElement.append(element);
+    if (parentElement) {
+      parentElement.append(element);
+    } else {
+      console.error("Parent element is undefined:", element);
+    }
   }
 
   static #createPage() {
