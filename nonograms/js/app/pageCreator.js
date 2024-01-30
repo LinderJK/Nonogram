@@ -12,11 +12,11 @@ export class PageCreator {
 
   static async init() {
     await this.jsonParse();
-    console.log(this.elementsToCreate);
+    // console.log(this.elementsToCreate);
     this.elementsToCreate.forEach((elementInfo) => {
       const elem = PageCreator.#createElement(elementInfo);
     });
-    console.log(this.pageComponent, this.elementsToCreate);
+    // console.log(this.pageComponent, this.elementsToCreate);
     PageCreator.#createPage();
   }
 
@@ -31,8 +31,8 @@ export class PageCreator {
         }
         const data = await response.json();
         this.elementsToCreate = [...this.elementsToCreate, ...data];
-        console.log(data);
-        console.log(this.elementsToCreate);
+        // console.log(data);
+        // console.log(this.elementsToCreate);
       } catch (error) {
         console.error(error);
       }
@@ -68,7 +68,7 @@ export class PageCreator {
     }
     elem.customParentElement =
       parent instanceof Element ? parent : this.pageComponent.get(parent);
-    console.log(elem, "new elem");
+    // console.log(elem, "new elem");
     this.pageComponent.set(key, elem);
     return elem;
   }

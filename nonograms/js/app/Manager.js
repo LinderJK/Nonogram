@@ -1,10 +1,10 @@
 import { Game } from "./gameCreator.js";
 
 export class Manager {
-  btn1 = null;
-  btn2 = document.querySelector(".btn-game2");
-  gameField = document.querySelector(".game-container");
-  gamesMatrix = new Map([
+  static btn1 = null;
+  static btn2 = null;
+  static gameField = null;
+  static gamesMatrix = new Map([
     [
       "game1",
       [
@@ -27,22 +27,32 @@ export class Manager {
       ],
     ],
   ]);
-  gameDifficulty = "easy";
-  currentGame = this.gamesMatrix.get("game1");
-  game = null;
+  static gameDifficulty = "easy";
+  static currentGame = null;
+  static game = null;
 
-  constructor() {
-    this.init();
+  // constructor() {
+  //   this.init();
+  // }
+
+  static init() {
+    this.btn1 = document.querySelector(".btn-game1");
+    this.btn2 = document.querySelector(".btn-game2");
+    this.gameField = document.querySelector(".game-container");
+    this.currentGame = this.gamesMatrix.get("game1");
+
+    Manager.game = new Game(
+      Manager.gameField,
+      Manager.gameDifficulty,
+      Manager.currentGame,
+    );
+
+    this.#buttonsClickHandler();
   }
 
-  init() {
-    this.game = new Game(
-      this.gameField,
-      this.gameDifficulty,
-      this.gamesMatrix.get("game1"),
-    );
-    console.log(this.gameField, "game FIELD");
-    console.log(this.currentGame, "current game");
+  static #buttonsClickHandler() {
+    // console.log(this.gameField, "game FIELD");
+    // console.log(this.currentGame, "current game");
     this.btn1 = document.querySelector(".btn-game1");
     this.btn1.addEventListener("click", (event) => {
       console.log("work1");
