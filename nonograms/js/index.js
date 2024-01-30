@@ -6,7 +6,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   start();
 });
 
-function start() {
-  PageCreator.init();
-  manager = new Manager();
+async function start() {
+  await PageCreator.init();
+  Manager.init();
 }
