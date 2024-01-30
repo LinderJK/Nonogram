@@ -15,4 +15,8 @@
     background-color: gray;
     cursor: pointer;
   }
+
+  &--active {
+    background-color: rgba(104, 92, 39, 0.55);
+  }
 }

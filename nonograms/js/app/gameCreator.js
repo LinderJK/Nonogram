@@ -35,7 +35,6 @@ export class Game {
     } else {
       //TODO MATRIX 15 x 15
     }
-    this.#init();
   }
 
   #init() {
@@ -45,7 +44,7 @@ export class Game {
       row.forEach((value) => {
         const gridItem = document.createElement("div");
         gridItem.classList.add("game-item");
-
+        gridItem.textContent = `${value}`;
         // gridItem.style.backgroundColor = value === 1 ? "lightblue" : "white";
         this.field.append(gridItem);
       });
@@ -53,5 +52,35 @@ export class Game {
 
     this.field.style.gridTemplateColumns = `repeat(${this.matrix[0].length}, 1fr)`;
     this.field.style.gridTemplateRows = `repeat(${this.matrix.length}, 1fr)`;
+
+    this.field.addEventListener("click", (event) =>
+      this.#fieldClickHandler(event),
+    );
+  }
+
+  #fieldClickHandler(e) {
+    if (e.target.classList.contains("game-item")) {
+      const gridItem = e.target;
+      console.log(gridItem, "GRID ITEM");
+
+      const index = Array.from(this.field.children).indexOf(gridItem);
+      const rowIndex = Math.floor(index / this.matrix[0].length) + 1;
+      const colIndex = (index % this.matrix[0].length) + 1;
+
+      if (gridItem.classList.contains("game-item--active")) {
+        gridItem.classList.remove("game-item--active");
+        this.#setZeroMatrixValue(0, rowIndex, colIndex, gridItem);
+      } else {
+        this.#setZeroMatrixValue(1, rowIndex, colIndex, gridItem);
+        gridItem.classList.add("game-item--active");
+      }
+    } else {
+    }
+  }
+
+  #setZeroMatrixValue(value, row, col, gridItem) {
+    this.zeroMatrix[row - 1][col - 1] = value;
+    gridItem.textContent = `${value}`;
+    console.log(this.zeroMatrix);
   }
 }
