@@ -15,5 +15,9 @@
   background-color: white;
   border: 1px solid black;
 }
+.game-item:hover {
+  background-color: gray;
+  cursor: pointer;
+}
 
 /*# sourceMappingURL=style.css.map */

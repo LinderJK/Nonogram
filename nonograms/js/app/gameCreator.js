@@ -1,3 +1,5 @@
+import { Manager } from "./Manager.js";
+
 export class Game {
   field = null;
   difficulty = null;
@@ -5,24 +7,46 @@ export class Game {
   hint = [];
   zeroMatrix = null;
 
-  constructor(field, difficulty, matrix, hint) {
+  constructor(field, difficulty, matrix, hint = null) {
     this.field = field;
     this.difficulty = difficulty;
     this.matrix = matrix;
     this.hint = hint;
 
+    this.#createZeroMatrix();
+    this.#init();
+  }
+
+  #setDifficulty(difficulty) {
+    switch (difficulty) {
+      case "easy":
+        return;
+        break;
+      case "hard":
+        return;
+        break;
+    }
+  }
+
+  #createZeroMatrix() {
+    if (this.difficulty === "easy") {
+      this.zeroMatrix = Array.from({ length: 5 }, () => Array(5).fill(0));
+      console.log(this.zeroMatrix, "zero matrix", Manager.currentGame);
+    } else {
+      //TODO MATRIX 15 x 15
+    }
     this.#init();
   }
 
   #init() {
-    console.log(this.field);
+    // console.log(this.field);
     this.field.innerHTML = "";
-
-    this.matrix.forEach((row) => {
+    this.zeroMatrix.forEach((row) => {
       row.forEach((value) => {
         const gridItem = document.createElement("div");
         gridItem.classList.add("game-item");
-        gridItem.style.backgroundColor = value === 1 ? "lightblue" : "white";
+
+        // gridItem.style.backgroundColor = value === 1 ? "lightblue" : "white";
         this.field.append(gridItem);
       });
     });
