@@ -41,7 +41,7 @@ export class Game {
   #createZeroMatrix() {
     if (this.difficulty === "easy") {
       this.zeroMatrix = Array.from({ length: 5 }, () => Array(5).fill(0));
-      console.log(this.zeroMatrix, "zero matrix");
+      // console.log(this.zeroMatrix, "zero matrix");
     } else {
       //TODO MATRIX 15 x 15
     }
@@ -54,7 +54,7 @@ export class Game {
       row.forEach((value) => {
         const gridItem = document.createElement("div");
         gridItem.classList.add("game-item");
-        gridItem.textContent = `${value}`;
+        // gridItem.textContent = `${value}`;
         // gridItem.style.backgroundColor = value === 1 ? "lightblue" : "white";
         this.field.append(gridItem);
       });
@@ -63,7 +63,7 @@ export class Game {
     this.field.style.gridTemplateColumns = `repeat(${this.matrix[0].length}, 1fr)`;
     this.field.style.gridTemplateRows = `repeat(${this.matrix.length}, 1fr)`;
 
-    console.log(this.field, "field");
+    // console.log(this.field, "field");
     this.field.addEventListener("click", (event) => {
       this.#fieldClickHandler(event);
     });
@@ -76,7 +76,7 @@ export class Game {
     hintsContainerTop.classList.add("hints-container-right");
 
     const { rowHints, colHints } = this.hint;
-    console.log(this.hint, rowHints, colHints, "hints");
+    // console.log(this.hint, rowHints, colHints, "hints");
 
     rowHints.forEach((hintRow) => {
       const hintRowContainer = document.createElement("div");
@@ -135,7 +135,7 @@ export class Game {
 
   #setZeroMatrixValue(value, row, col, gridItem) {
     this.zeroMatrix[row - 1][col - 1] = value;
-    gridItem.textContent = `${value}`;
+    // gridItem.textContent = `${value}`;
     console.log("this zero matrix value", this.zeroMatrix);
   }
 

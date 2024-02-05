@@ -9,10 +9,10 @@ export class Manager {
       "game1",
       [
         [1, 1, 1, 1, 1],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0],
       ],
     ],
 
@@ -43,8 +43,9 @@ export class Manager {
     this.currentGame = this.gamesMatrix.get("game1");
     console.log(this.currentGame, "game");
     this.currentHint = this.generateHints(this.currentGame);
-    console.log(this.currentHint, "hints");
-
+    // console.log(this.currentHint, "hints");
+    const field = document.querySelector(".game-end");
+    field.innerHTML = "";
     Manager.game = new Game(
       Manager.gameDifficulty,
       Manager.currentGame,
@@ -55,6 +56,8 @@ export class Manager {
   }
 
   static createNewGame(name = "game1") {
+    const field = document.querySelector(".game-end");
+    field.innerHTML = "";
     this.currentGame = this.gamesMatrix.get(name);
     console.log(this.currentGame, "game");
     this.currentHint = this.generateHints(this.currentGame);
@@ -83,6 +86,12 @@ export class Manager {
   }
 
   static endGame() {
+    const field = document.querySelector(".game-end");
+    field.innerHTML = "";
+    // console.log("FFFFFIELD ", field);
+    const textField = document.createElement("p");
+    textField.textContent = "Отлично! Вы решили нонограмму!";
+    field.append(textField);
     console.log("Поздравляю! Вы выиграли!");
   }
 

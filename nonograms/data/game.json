@@ -6,6 +6,18 @@
     "parent": "wrapper"
   },
   {
+    "key": "description-game",
+    "tagName": "div",
+    "className": "container d-flex justify-content-center p-5 description-game",
+    "parent": "wrapper"
+  },
+  {
+    "key": "game-info",
+    "tagName": "p",
+    "className": "lead game-end",
+    "parent": "description-game"
+  },
+  {
     "key": "game-hint-left",
     "tagName": "div",
     "className": "game-hint-left",

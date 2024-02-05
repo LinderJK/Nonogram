@@ -6,10 +6,22 @@
     "parent": "wrapper"
   },
   {
+    "key": "btn-group",
+    "tagName": "div",
+    "className": "btn-group m-3",
+    "parent": "navbar",
+    "attributes": [
+      {
+        "role": "group",
+        "value": "button"
+      }
+    ]
+  },
+  {
     "key": "button-game1",
     "tagName": "button",
     "className": "btn btn-primary btn-game1",
-    "parent": "navbar",
+    "parent": "btn-group",
     "attributes": [
       {
         "name": "type",
@@ -26,7 +38,7 @@
     "key": "button-game2",
     "tagName": "button",
     "className": "btn btn-primary btn-game2",
-    "parent": "navbar",
+    "parent": "btn-group",
     "attributes": [
       {
         "name": "type",
