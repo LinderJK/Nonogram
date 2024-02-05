@@ -17,16 +17,16 @@ export class Game {
     this.#init();
   }
 
-  #setDifficulty(difficulty) {
-    switch (difficulty) {
-      case "easy":
-        return;
-        break;
-      case "hard":
-        return;
-        break;
-    }
-  }
+  // #setDifficulty(difficulty) {
+  //   switch (difficulty) {
+  //     case "easy":
+  //       return;
+  //       break;
+  //     case "hard":
+  //       return;
+  //       break;
+  //   }
+  // }
 
   #createZeroMatrix() {
     if (this.difficulty === "easy") {
@@ -74,13 +74,25 @@ export class Game {
         this.#setZeroMatrixValue(1, rowIndex, colIndex, gridItem);
         gridItem.classList.add("game-item--active");
       }
-    } else {
     }
+
+    this.#winCheck(this.zeroMatrix, Manager.currentGame);
   }
 
   #setZeroMatrixValue(value, row, col, gridItem) {
     this.zeroMatrix[row - 1][col - 1] = value;
     gridItem.textContent = `${value}`;
-    console.log(this.zeroMatrix);
+    console.log("this zero matrix value", this.zeroMatrix);
+  }
+
+  #winCheck(userMatrix, originalMatrix) {
+    for (let i = 0; i < originalMatrix.length; i++) {
+      for (let j = 0; j < originalMatrix[i].length; j++) {
+        if (originalMatrix[i][j] !== userMatrix[i][j]) {
+          return;
+        }
+      }
+    }
+    Manager.endGame();
   }
 }
