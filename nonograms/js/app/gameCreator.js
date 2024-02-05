@@ -2,6 +2,8 @@ import { Manager } from "./Manager.js";
 
 export class Game {
   field = document.querySelector(".game-container");
+  hintFieldLeft = document.querySelector(".game-hint-left");
+  hintFieldTop = document.querySelector(".game-hint-top");
   difficulty = null;
   matrix = null;
   hint = [];
@@ -12,7 +14,8 @@ export class Game {
     this.matrix = matrix;
     this.hint = hint;
     this.#createZeroMatrix();
-    this.#init();
+    this.#initGame();
+    this.#initHints();
   }
 
   // #setDifficulty(difficulty) {
@@ -31,7 +34,8 @@ export class Game {
     this.matrix = matrix;
     this.hint = hint;
     this.#createZeroMatrix();
-    this.#init();
+    this.#initGame();
+    this.#initHints();
   }
 
   #createZeroMatrix() {
@@ -43,7 +47,7 @@ export class Game {
     }
   }
 
-  #init() {
+  #initGame() {
     // console.log(this.field);
     this.field.innerHTML = "";
     this.zeroMatrix.forEach((row) => {
@@ -63,6 +67,49 @@ export class Game {
     this.field.addEventListener("click", (event) => {
       this.#fieldClickHandler(event);
     });
+  }
+
+  #initHints() {
+    const hintsContainerLeft = document.createElement("div");
+    hintsContainerLeft.classList.add("hints-container-left");
+    const hintsContainerTop = document.createElement("div");
+    hintsContainerTop.classList.add("hints-container-right");
+
+    const { rowHints, colHints } = this.hint;
+    console.log(this.hint, rowHints, colHints, "hints");
+
+    rowHints.forEach((hintRow) => {
+      const hintRowContainer = document.createElement("div");
+      hintRowContainer.classList.add("hint-row");
+
+      hintRow.forEach((hint) => {
+        const hintItem = document.createElement("div");
+        hintItem.classList.add("hint-item");
+        hintItem.textContent = `${hint}`;
+        hintRowContainer.append(hintItem);
+      });
+
+      hintsContainerLeft.append(hintRowContainer);
+    });
+
+    colHints.forEach((hintCol) => {
+      const hintColContainer = document.createElement("div");
+      hintColContainer.classList.add("hint-col");
+
+      hintCol.forEach((hint) => {
+        const hintItem = document.createElement("div");
+        hintItem.classList.add("hint-item");
+        hintItem.textContent = `${hint}`;
+        hintColContainer.append(hintItem);
+      });
+
+      hintsContainerTop.append(hintColContainer);
+    });
+
+    this.hintFieldLeft.innerHTML = "";
+    this.hintFieldLeft.append(hintsContainerLeft);
+    this.hintFieldTop.innerHTML = "";
+    this.hintFieldTop.append(hintsContainerTop);
   }
 
   #fieldClickHandler(e) {

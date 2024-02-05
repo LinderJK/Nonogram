@@ -23,4 +23,36 @@
   background-color: rgba(104, 92, 39, 0.55);
 }
 
+.hints-container-left {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid black;
+  margin-right: 10px;
+}
+
+.hint-row {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.hint-item {
+  width: 70px;
+  height: 70px;
+  border: 1px solid black;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hint-item:hover {
+  background-color: gray;
+  cursor: pointer;
+}
+.hints-container-right {
+  display: flex;
+  flex-direction: row;
+  border: 3px solid black;
+  margin-bottom: 10px;
+}
+
 /*# sourceMappingURL=style.css.map */

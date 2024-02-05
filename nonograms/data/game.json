@@ -2,7 +2,7 @@
   {
     "key": "game-container",
     "tagName": "div",
-    "className": "container d-flex justify-content-center p-5",
+    "className": "container d-flex justify-content-center p-5 align-items-end",
     "parent": "wrapper"
   },
   {
@@ -12,15 +12,21 @@
     "parent": "game-container"
   },
   {
-    "key": "game-grid-field",
+    "key": "game-container-2",
     "tagName": "div",
-    "className": "game-container",
+    "className": "1",
     "parent": "game-container"
   },
   {
     "key": "game-hint-top",
     "tagName": "div",
     "className": "game-hint-top",
-    "parent": "game-container"
+    "parent": "game-container-2"
+  },
+  {
+    "key": "game-grid-field",
+    "tagName": "div",
+    "className": "game-container",
+    "parent": "game-container-2"
   }
 ]
