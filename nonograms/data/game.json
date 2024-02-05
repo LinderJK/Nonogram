@@ -6,9 +6,21 @@
     "parent": "wrapper"
   },
   {
+    "key": "game-hint-left",
+    "tagName": "div",
+    "className": "game-hint-left",
+    "parent": "game-container"
+  },
+  {
     "key": "game-grid-field",
     "tagName": "div",
     "className": "game-container",
+    "parent": "game-container"
+  },
+  {
+    "key": "game-hint-top",
+    "tagName": "div",
+    "className": "game-hint-top",
     "parent": "game-container"
   }
 ]

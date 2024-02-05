@@ -1,18 +1,16 @@
 import { Manager } from "./Manager.js";
 
 export class Game {
-  field = null;
+  field = document.querySelector(".game-container");
   difficulty = null;
   matrix = null;
   hint = [];
   zeroMatrix = null;
 
-  constructor(field, difficulty, matrix, hint = null) {
-    this.field = field;
+  constructor(difficulty, matrix, hint = null) {
     this.difficulty = difficulty;
     this.matrix = matrix;
     this.hint = hint;
-
     this.#createZeroMatrix();
     this.#init();
   }
@@ -28,10 +26,18 @@ export class Game {
   //   }
   // }
 
+  updateGame(difficulty, matrix, hint) {
+    this.difficulty = difficulty;
+    this.matrix = matrix;
+    this.hint = hint;
+    this.#createZeroMatrix();
+    this.#init();
+  }
+
   #createZeroMatrix() {
     if (this.difficulty === "easy") {
       this.zeroMatrix = Array.from({ length: 5 }, () => Array(5).fill(0));
-      console.log(this.zeroMatrix, "zero matrix", Manager.currentGame);
+      console.log(this.zeroMatrix, "zero matrix");
     } else {
       //TODO MATRIX 15 x 15
     }
@@ -53,9 +59,10 @@ export class Game {
     this.field.style.gridTemplateColumns = `repeat(${this.matrix[0].length}, 1fr)`;
     this.field.style.gridTemplateRows = `repeat(${this.matrix.length}, 1fr)`;
 
-    this.field.addEventListener("click", (event) =>
-      this.#fieldClickHandler(event),
-    );
+    console.log(this.field, "field");
+    this.field.addEventListener("click", (event) => {
+      this.#fieldClickHandler(event);
+    });
   }
 
   #fieldClickHandler(e) {
@@ -75,7 +82,7 @@ export class Game {
         gridItem.classList.add("game-item--active");
       }
     }
-
+    console.log(this.zeroMatrix, Manager.currentGame, '"GAME ZERO MATRIX"');
     this.#winCheck(this.zeroMatrix, Manager.currentGame);
   }
 
