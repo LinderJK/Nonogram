@@ -8,14 +8,22 @@ export class Game {
   matrix = null;
   hint = [];
   zeroMatrix = null;
+  firstClick = false;
+
+  timerSeconds = 0;
+  timerMinutes = 0;
+  currentTimer = null;
+  time = "00:00";
 
   constructor(difficulty, matrix, hint = null) {
     this.difficulty = difficulty;
     this.matrix = matrix;
     this.hint = hint;
+    this.firstClick = false;
     this.#createZeroMatrix();
     this.#initGame();
     this.#initHints();
+    this.#timerStop();
   }
 
   // #setDifficulty(difficulty) {
@@ -33,9 +41,11 @@ export class Game {
     this.difficulty = difficulty;
     this.matrix = matrix;
     this.hint = hint;
+    this.firstClick = false;
     this.#createZeroMatrix();
     this.#initGame();
     this.#initHints();
+    this.#timerStop();
   }
 
   #createZeroMatrix() {
@@ -117,6 +127,12 @@ export class Game {
   }
 
   #fieldClickHandler(e) {
+    if (this.firstClick === true) {
+    } else {
+      this.#timerStart();
+    }
+    this.firstClick = true;
+
     if (e.type === "click") {
       if (e.target.classList.contains("game-item--crossed")) {
         return;
@@ -153,6 +169,30 @@ export class Game {
 
     console.log(this.zeroMatrix, Manager.currentGame, '"GAME ZERO MATRIX"');
     this.#winCheck(this.zeroMatrix, Manager.currentGame);
+  }
+
+  #timerStart() {
+    this.currentTimer = setInterval(() => this.#updateTimer(), 1000);
+  }
+
+  #timerStop() {
+    clearInterval(this.currentTimer);
+    this.timerMinutes = 0;
+    this.timerSeconds = 0;
+    this.time = "00:00";
+    Manager.timer.textContent = this.time;
+  }
+
+  #updateTimer() {
+    this.timerSeconds++;
+    if (this.timerSeconds >= 60) {
+      this.timerSeconds = 0;
+      this.timerMinutes++;
+    }
+    this.time = `${
+      this.timerMinutes < 10 ? "0" + this.timerMinutes : this.timerMinutes
+    }:${this.timerSeconds < 10 ? "0" + this.timerSeconds : this.timerSeconds}`;
+    Manager.timer.textContent = this.time;
   }
 
   #setZeroMatrixValue(value, row, col, gridItem) {

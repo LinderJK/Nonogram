@@ -18,6 +18,13 @@
     "parent": "description-game"
   },
   {
+    "key": "game-timer",
+    "tagName": "div",
+    "className": "display-2 game-timer",
+    "parent": "description-game",
+    "text": "00:00"
+  },
+  {
     "key": "game-hint-left",
     "tagName": "div",
     "className": "game-hint-left",
