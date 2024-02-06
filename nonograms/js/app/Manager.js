@@ -68,7 +68,7 @@ export class Manager {
   // }
 
   static init() {
-    this.btn1 = document.querySelector(".btn-game1");
+    this.btnReset = document.querySelector("#reset-game");
     this.btn2 = document.querySelector(".btn-game2");
     this.gameField = document.querySelector(".game-container");
     this.easyModeBtn = document.querySelectorAll("#btn-easy a");
@@ -102,12 +102,24 @@ export class Manager {
     );
   }
 
+  static resetGame() {
+    this.game.updateGame(
+      this.gameDifficulty,
+      this.currentGame,
+      this.currentHint,
+    );
+  }
+
   static #buttonsClickHandler() {
     this.easyModeBtn.forEach((button) => {
       button.addEventListener("click", () => {
         this.createNewGame(`${button.id}`);
         this.createNewGame(`${button.id}`);
       });
+    });
+    this.btnReset.addEventListener("click", () => {
+      this.resetGame();
+      this.resetGame();
     });
   }
 
