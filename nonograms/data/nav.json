@@ -66,22 +66,5 @@
       }
     ],
     "text": "Reset game"
-  },
-  {
-    "key": "button-game2",
-    "tagName": "button",
-    "className": "btn btn-primary btn-game2",
-    "parent": "btn-group",
-    "attributes": [
-      {
-        "name": "type",
-        "value": "button"
-      },
-      {
-        "name": "value",
-        "value": "game2"
-      }
-    ],
-    "text": "Game 2"
   }
 ]
