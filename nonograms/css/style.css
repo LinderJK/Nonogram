@@ -32,7 +32,8 @@
 
 .hint-row {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
+  align-self: flex-end;
 }
 
 .hint-item {

@@ -22,7 +22,7 @@
         "value": "game1"
       }
     ],
-    "text": "Game1"
+    "text": "Staircase"
   },
   {
     "key": "game2-li",
@@ -41,7 +41,7 @@
         "value": "game2"
       }
     ],
-    "text": "Game2"
+    "text": "Letter of the alphabet"
   },
   {
     "key": "game3-li",
@@ -60,7 +60,7 @@
         "value": "game3"
       }
     ],
-    "text": "Game3"
+    "text": "Scull"
   },
   {
     "key": "game4-li",
@@ -79,7 +79,7 @@
         "value": "game4"
       }
     ],
-    "text": "Game4"
+    "text": "Airplane"
   },
   {
     "key": "game5-li",
@@ -98,6 +98,6 @@
         "value": "game5"
       }
     ],
-    "text": "Game5"
+    "text": "Hash symbol"
   }
 ]
