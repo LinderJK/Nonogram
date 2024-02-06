@@ -21,7 +21,11 @@ export class PageCreator {
   }
 
   static async jsonParse() {
-    const jsonFiles = ["./data/nav.json", "./data/game.json"];
+    const jsonFiles = [
+      "./data/nav.json",
+      "./data/game.json",
+      "./data/gamesList.json",
+    ];
 
     for (const jsonFilePath of jsonFiles) {
       try {

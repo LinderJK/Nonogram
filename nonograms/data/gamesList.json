@@ -1,0 +1,103 @@
+[
+  {
+    "key": "dropdown-easy-mode-ul",
+    "tagName": "ul",
+    "className": "dropdown-menu",
+    "parent": "dropdown-easy-mode"
+  },
+  {
+    "key": "game1-li",
+    "tagName": "li",
+    "className": "",
+    "parent": "dropdown-easy-mode-ul"
+  },
+  {
+    "key": "game1-a",
+    "tagName": "a",
+    "className": "dropdown-item",
+    "parent": "game1-li",
+    "attributes": [
+      {
+        "name": "id",
+        "value": "game1"
+      }
+    ],
+    "text": "Game1"
+  },
+  {
+    "key": "game2-li",
+    "tagName": "li",
+    "className": "",
+    "parent": "dropdown-easy-mode-ul"
+  },
+  {
+    "key": "game2-a",
+    "tagName": "a",
+    "className": "dropdown-item",
+    "parent": "game2-li",
+    "attributes": [
+      {
+        "name": "id",
+        "value": "game2"
+      }
+    ],
+    "text": "Game2"
+  },
+  {
+    "key": "game3-li",
+    "tagName": "li",
+    "className": "",
+    "parent": "dropdown-easy-mode-ul"
+  },
+  {
+    "key": "game3-a",
+    "tagName": "a",
+    "className": "dropdown-item",
+    "parent": "game3-li",
+    "attributes": [
+      {
+        "name": "id",
+        "value": "game3"
+      }
+    ],
+    "text": "Game3"
+  },
+  {
+    "key": "game4-li",
+    "tagName": "li",
+    "className": "",
+    "parent": "dropdown-easy-mode-ul"
+  },
+  {
+    "key": "game4-a",
+    "tagName": "a",
+    "className": "dropdown-item",
+    "parent": "game4-li",
+    "attributes": [
+      {
+        "name": "id",
+        "value": "game4"
+      }
+    ],
+    "text": "Game4"
+  },
+  {
+    "key": "game5-li",
+    "tagName": "li",
+    "className": "",
+    "parent": "dropdown-easy-mode-ul"
+  },
+  {
+    "key": "game5-a",
+    "tagName": "a",
+    "className": "dropdown-item",
+    "parent": "game5-li",
+    "attributes": [
+      {
+        "name": "id",
+        "value": "game5"
+      }
+    ],
+    "text": "Game5"
+  }
+]

@@ -6,14 +6,47 @@
     "parent": "wrapper"
   },
   {
+    "key": "dropdown-easy-mode",
+    "tagName": "div",
+    "className": "dropdown m-3",
+    "parent": "navbar",
+    "attributes": [
+      {
+        "name": "id",
+        "value": "btn-easy"
+      }
+    ]
+  },
+  {
+    "key": "btn-easy-mode",
+    "tagName": "button",
+    "className": "btn btn-secondary dropdown-toggle",
+    "parent": "dropdown-easy-mode",
+    "attributes": [
+      {
+        "name": "type",
+        "value": "button"
+      },
+      {
+        "name": "data-bs-toggle",
+        "value": "dropdown"
+      },
+      {
+        "name": "aria-expanded",
+        "value": "false"
+      }
+    ],
+    "text": "Easy games"
+  },
+  {
     "key": "btn-group",
     "tagName": "div",
     "className": "btn-group m-3",
     "parent": "navbar",
     "attributes": [
       {
-        "role": "group",
-        "value": "button"
+        "name": "role",
+        "value": "group"
       }
     ]
   },

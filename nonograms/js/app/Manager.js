@@ -3,6 +3,7 @@ import { Game } from "./gameCreator.js";
 export class Manager {
   static btn1 = null;
   static btn2 = null;
+  static easyModeBtn = null;
   static gameField = null;
   static gamesMatrix = new Map([
     [
@@ -26,6 +27,36 @@ export class Manager {
         [0, 1, 0, 1, 0],
       ],
     ],
+    [
+      "game3",
+      [
+        [0, 1, 1, 1, 0],
+        [1, 1, 1, 1, 1],
+        [1, 0, 1, 0, 1],
+        [1, 1, 1, 1, 1],
+        [0, 1, 0, 1, 0],
+      ],
+    ],
+    [
+      "game4",
+      [
+        [0, 0, 1, 0, 0],
+        [0, 1, 1, 1, 0],
+        [1, 1, 1, 1, 1],
+        [0, 0, 1, 0, 0],
+        [0, 1, 1, 1, 0],
+      ],
+    ],
+    [
+      "game5",
+      [
+        [0, 1, 0, 1, 0],
+        [1, 1, 1, 1, 1],
+        [0, 1, 0, 1, 0],
+        [1, 1, 1, 1, 1],
+        [0, 1, 0, 1, 0],
+      ],
+    ],
   ]);
   static gameDifficulty = "easy";
   static currentGame = null;
@@ -40,6 +71,8 @@ export class Manager {
     this.btn1 = document.querySelector(".btn-game1");
     this.btn2 = document.querySelector(".btn-game2");
     this.gameField = document.querySelector(".game-container");
+    this.easyModeBtn = document.querySelectorAll("#btn-easy a");
+    console.log(this.easyModeBtn, "easy btn");
     this.currentGame = this.gamesMatrix.get("game1");
     console.log(this.currentGame, "game");
     this.currentHint = this.generateHints(this.currentGame);
@@ -70,18 +103,11 @@ export class Manager {
   }
 
   static #buttonsClickHandler() {
-    this.btn1 = document.querySelector(".btn-game1");
-
-    this.btn1.addEventListener("click", (event) => {
-      console.log("work1");
-      this.createNewGame();
-      this.createNewGame();
-    });
-
-    this.btn2.addEventListener("click", () => {
-      console.log("work2");
-      this.createNewGame("game2");
-      this.createNewGame("game2");
+    this.easyModeBtn.forEach((button) => {
+      button.addEventListener("click", () => {
+        this.createNewGame(`${button.id}`);
+        this.createNewGame(`${button.id}`);
+      });
     });
   }
 
