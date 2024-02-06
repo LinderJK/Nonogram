@@ -8,19 +8,19 @@
   {
     "key": "description-game",
     "tagName": "div",
-    "className": "container d-flex justify-content-center p-5 description-game",
+    "className": "container d-flex justify-content-center p-5 flex-column description-game",
     "parent": "wrapper"
   },
   {
     "key": "game-info",
     "tagName": "p",
-    "className": "lead game-end",
+    "className": "lead game-end align-self-center",
     "parent": "description-game"
   },
   {
     "key": "game-timer",
     "tagName": "div",
-    "className": "display-2 game-timer",
+    "className": "display-2 game-timer align-self-center",
     "parent": "description-game",
     "text": "00:00"
   },

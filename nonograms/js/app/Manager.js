@@ -5,7 +5,8 @@ export class Manager {
   static btn2 = null;
   static easyModeBtn = null;
   static gameField = null;
-  static timer = null;
+  static timerField = null;
+  static currentGameTime = null;
   static gamesMatrix = new Map([
     [
       "game1",
@@ -73,7 +74,7 @@ export class Manager {
     this.btn2 = document.querySelector(".btn-game2");
     this.gameField = document.querySelector(".game-container");
     this.easyModeBtn = document.querySelectorAll("#btn-easy a");
-    this.timer = document.querySelector(".game-timer");
+    this.timerField = document.querySelector(".game-timer");
     console.log(this.easyModeBtn, "easy btn");
     this.currentGame = this.gamesMatrix.get("game1");
     console.log(this.currentGame, "game");
@@ -132,7 +133,7 @@ export class Manager {
     field.innerHTML = "";
     // console.log("FFFFFIELD ", field);
     const textField = document.createElement("p");
-    textField.textContent = "Отлично! Вы решили нонограмму!";
+    textField.textContent = `Отлично! Вы решили нонограмму за ${this.currentGameTime}!`;
     field.append(textField);
     console.log("Поздравляю! Вы выиграли!");
   }

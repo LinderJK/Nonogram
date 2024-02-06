@@ -180,7 +180,7 @@ export class Game {
     this.timerMinutes = 0;
     this.timerSeconds = 0;
     this.time = "00:00";
-    Manager.timer.textContent = this.time;
+    Manager.timerField.textContent = this.time;
   }
 
   #updateTimer() {
@@ -192,7 +192,8 @@ export class Game {
     this.time = `${
       this.timerMinutes < 10 ? "0" + this.timerMinutes : this.timerMinutes
     }:${this.timerSeconds < 10 ? "0" + this.timerSeconds : this.timerSeconds}`;
-    Manager.timer.textContent = this.time;
+    Manager.timerField.textContent = this.time;
+    Manager.currentGameTime = this.time;
   }
 
   #setZeroMatrixValue(value, row, col, gridItem) {
@@ -209,6 +210,7 @@ export class Game {
         }
       }
     }
+    this.#timerStop();
     Manager.endGame();
   }
 }
