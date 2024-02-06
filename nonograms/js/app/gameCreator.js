@@ -67,6 +67,10 @@ export class Game {
     this.field.addEventListener("click", (event) => {
       this.#fieldClickHandler(event);
     });
+    this.field.addEventListener("contextmenu", (event) => {
+      event.preventDefault();
+      this.#fieldClickHandler(event);
+    });
   }
 
   #initHints() {
@@ -113,22 +117,40 @@ export class Game {
   }
 
   #fieldClickHandler(e) {
-    if (e.target.classList.contains("game-item")) {
-      const gridItem = e.target;
-      console.log(gridItem, "GRID ITEM");
+    if (e.type === "click") {
+      if (e.target.classList.contains("game-item--crossed")) {
+        return;
+      }
+      if (e.target.classList.contains("game-item")) {
+        const gridItem = e.target;
+        // console.log(gridItem, "GRID ITEM");
 
-      const index = Array.from(this.field.children).indexOf(gridItem);
-      const rowIndex = Math.floor(index / this.matrix[0].length) + 1;
-      const colIndex = (index % this.matrix[0].length) + 1;
+        const index = Array.from(this.field.children).indexOf(gridItem);
+        const rowIndex = Math.floor(index / this.matrix[0].length) + 1;
+        const colIndex = (index % this.matrix[0].length) + 1;
 
-      if (gridItem.classList.contains("game-item--active")) {
-        gridItem.classList.remove("game-item--active");
-        this.#setZeroMatrixValue(0, rowIndex, colIndex, gridItem);
+        if (gridItem.classList.contains("game-item--active")) {
+          gridItem.classList.remove("game-item--active");
+          this.#setZeroMatrixValue(0, rowIndex, colIndex, gridItem);
+        } else {
+          this.#setZeroMatrixValue(1, rowIndex, colIndex, gridItem);
+          gridItem.classList.add("game-item--active");
+        }
+      }
+    } else if (e.type === "contextmenu") {
+      console.log("CONTEXT");
+      if (e.target.classList.contains("game-item--active")) {
+        return;
       } else {
-        this.#setZeroMatrixValue(1, rowIndex, colIndex, gridItem);
-        gridItem.classList.add("game-item--active");
+        const gridItem = e.target;
+        if (gridItem.classList.contains("game-item--crossed")) {
+          gridItem.classList.remove("game-item--crossed");
+        } else {
+          gridItem.classList.add("game-item--crossed");
+        }
       }
     }
+
     console.log(this.zeroMatrix, Manager.currentGame, '"GAME ZERO MATRIX"');
     this.#winCheck(this.zeroMatrix, Manager.currentGame);
   }
