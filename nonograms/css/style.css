@@ -39,13 +39,6 @@
   transform: translateY(-50%) rotate(-45deg);
 }
 
-.hints-container-left {
-  display: flex;
-  flex-direction: column;
-  border: 3px solid black;
-  margin-right: 10px;
-}
-
 .hint-row {
   display: flex;
   flex-direction: row;
@@ -65,11 +58,16 @@
   background-color: gray;
   cursor: pointer;
 }
+.hints-container-left {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid black;
+}
+
 .hints-container-right {
   display: flex;
   flex-direction: row;
   border: 3px solid black;
-  margin-bottom: 10px;
 }
 
 .hint-col {

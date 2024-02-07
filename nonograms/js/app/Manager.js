@@ -65,21 +65,15 @@ export class Manager {
   static currentHint = null;
   static game = null;
 
-  // constructor() {
-  //   this.init();
-  // }
-
   static init() {
     this.btnReset = document.querySelector("#reset-game");
     this.btn2 = document.querySelector(".btn-game2");
     this.gameField = document.querySelector(".game-container");
+    this.btnLoadGame = document.querySelector("#current-game");
     this.easyModeBtn = document.querySelectorAll("#btn-easy a");
     this.timerField = document.querySelector(".game-timer");
-    console.log(this.easyModeBtn, "easy btn");
     this.currentGame = this.gamesMatrix.get("game1");
-    console.log(this.currentGame, "game");
     this.currentHint = this.generateHints(this.currentGame);
-    // console.log(this.currentHint, "hints");
     const field = document.querySelector(".game-end");
     field.innerHTML = "";
     Manager.game = new Game(
@@ -95,9 +89,8 @@ export class Manager {
     const field = document.querySelector(".game-end");
     field.innerHTML = "";
     this.currentGame = this.gamesMatrix.get(name);
-    console.log(this.currentGame, "game");
     this.currentHint = this.generateHints(this.currentGame);
-    console.log(this.currentHint, "hints");
+
     this.game.updateGame(
       this.gameDifficulty,
       this.currentGame,
@@ -124,6 +117,10 @@ export class Manager {
       this.resetGame();
       this.resetGame();
     });
+
+    this.btnLoadGame.addEventListener("click", () => {
+      this.game.loadGame();
+    });
   }
 
   static information() {}
@@ -131,7 +128,6 @@ export class Manager {
   static endGame() {
     const field = document.querySelector(".game-end");
     field.innerHTML = "";
-    // console.log("FFFFFIELD ", field);
     const textField = document.createElement("p");
     textField.textContent = `Отлично! Вы решили нонограмму за ${this.currentGameTime}!`;
     field.append(textField);

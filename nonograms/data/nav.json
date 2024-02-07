@@ -66,5 +66,22 @@
       }
     ],
     "text": "Reset game"
+  },
+  {
+    "key": "button-current-game",
+    "tagName": "button",
+    "className": "btn btn-primary",
+    "parent": "btn-group",
+    "attributes": [
+      {
+        "name": "type",
+        "value": "button"
+      },
+      {
+        "name": "id",
+        "value": "current-game"
+      }
+    ],
+    "text": "Continue last game"
   }
 ]
