@@ -133,6 +133,7 @@ export class Manager {
     const randomIndex = Math.floor(Math.random() * keysArray.length);
     const randomKey = keysArray[randomIndex];
     this.createNewGame(randomKey);
+    this.createNewGame(randomKey);
   }
 
   static information() {}
