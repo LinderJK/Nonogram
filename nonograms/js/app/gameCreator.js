@@ -45,13 +45,22 @@ export class Game {
     }
   }
 
-  loadGame() {
-    const savedGame = localStorage.getItem("current-game");
-    if (savedGame) {
-      this.zeroMatrix = JSON.parse(savedGame);
-      console.log(JSON.parse(savedGame), "zero matrix");
+  loadGame(flag = false) {
+    if (flag) {
       this.applyZeroMatrixToField();
+    } else {
+      const savedGame = localStorage.getItem("current-game");
+      if (savedGame) {
+        this.zeroMatrix = JSON.parse(savedGame);
+        console.log(JSON.parse(savedGame), "zero matrix");
+        this.applyZeroMatrixToField();
+      }
     }
+  }
+
+  showSolution() {
+    this.zeroMatrix = this.matrix;
+    console.log(this.zeroMatrix, "show solution");
   }
 
   applyZeroMatrixToField() {

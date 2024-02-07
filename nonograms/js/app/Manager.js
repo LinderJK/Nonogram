@@ -72,6 +72,7 @@ export class Manager {
     this.btnLoadGame = document.querySelector("#current-game");
     this.easyModeBtn = document.querySelectorAll("#btn-easy a");
     this.timerField = document.querySelector(".game-timer");
+    this.btnShowSolution = document.querySelector("#show-solution");
     this.btnRandomGame = document.querySelector("#random-game");
     this.currentGame = this.gamesMatrix.get("game1");
     this.currentHint = this.generateHints(this.currentGame);
@@ -125,6 +126,11 @@ export class Manager {
 
     this.btnRandomGame.addEventListener("click", () => {
       this.getRandomGame();
+    });
+
+    this.btnShowSolution.addEventListener("click", () => {
+      this.game.showSolution();
+      this.game.loadGame(true);
     });
   }
 

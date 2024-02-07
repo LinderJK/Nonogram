@@ -100,5 +100,22 @@
       }
     ],
     "text": "Random game"
+  },
+  {
+    "key": "button-show-solution",
+    "tagName": "button",
+    "className": "btn btn-primary",
+    "parent": "btn-group",
+    "attributes": [
+      {
+        "name": "type",
+        "value": "button"
+      },
+      {
+        "name": "id",
+        "value": "show-solution"
+      }
+    ],
+    "text": "Solution"
   }
 ]
