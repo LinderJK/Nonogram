@@ -83,5 +83,22 @@
       }
     ],
     "text": "Continue last game"
+  },
+  {
+    "key": "button-random-game",
+    "tagName": "button",
+    "className": "btn btn-primary",
+    "parent": "btn-group",
+    "attributes": [
+      {
+        "name": "type",
+        "value": "button"
+      },
+      {
+        "name": "id",
+        "value": "random-game"
+      }
+    ],
+    "text": "Random game"
   }
 ]
