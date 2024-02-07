@@ -66,17 +66,20 @@ export class Manager {
   static game = null;
 
   static init() {
+    this.nav = document.querySelector("#navbar");
     this.btnReset = document.querySelector("#reset-game");
     this.btn2 = document.querySelector(".btn-game2");
     this.gameField = document.querySelector(".game-container");
     this.btnLoadGame = document.querySelector("#current-game");
     this.easyModeBtn = document.querySelectorAll("#btn-easy a");
     this.timerField = document.querySelector(".game-timer");
+    this.btnTheme = document.querySelector("#btn-theme");
     this.btnShowSolution = document.querySelector("#show-solution");
     this.btnRandomGame = document.querySelector("#random-game");
     this.currentGame = this.gamesMatrix.get("game1");
     this.currentHint = this.generateHints(this.currentGame);
     const field = document.querySelector(".game-end");
+
     field.innerHTML = "";
     Manager.game = new Game(
       Manager.gameDifficulty,
@@ -131,6 +134,10 @@ export class Manager {
     this.btnShowSolution.addEventListener("click", () => {
       this.game.showSolution();
       this.game.loadGame(true);
+    });
+
+    this.btnTheme.addEventListener("click", () => {
+      this.changeTheme();
     });
   }
 
@@ -198,5 +205,19 @@ export class Manager {
     }
 
     return { rowHints, colHints };
+  }
+
+  static changeTheme() {
+    if (this.btnTheme.getAttribute("data-theme") === "light") {
+      document.body.style.backgroundColor = "grey";
+      this.nav.setAttribute("data-bs-theme", "dark");
+      this.btnTheme.setAttribute("data-theme", "dark");
+      this.btnTheme.textContent = "Light";
+    } else if (this.btnTheme.getAttribute("data-theme") === "dark") {
+      document.body.style.backgroundColor = "white";
+      this.nav.setAttribute("data-bs-theme", "light");
+      this.btnTheme.setAttribute("data-theme", "light");
+      this.btnTheme.textContent = "Dark";
+    }
   }
 }

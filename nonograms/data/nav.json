@@ -3,7 +3,17 @@
     "key": "navbar",
     "tagName": "nav",
     "className": "navbar bg-body-tertiary",
-    "parent": "wrapper"
+    "parent": "wrapper",
+    "attributes": [
+      {
+        "name": "data-bs-theme",
+        "value": "light"
+      },
+      {
+        "name": "id",
+        "value": "navbar"
+      }
+    ]
   },
   {
     "key": "dropdown-easy-mode",
@@ -37,6 +47,27 @@
       }
     ],
     "text": "Easy games"
+  },
+  {
+    "key": "button-theme",
+    "tagName": "button",
+    "className": "btn btn-secondary",
+    "parent": "navbar",
+    "attributes": [
+      {
+        "name": "type",
+        "value": "button"
+      },
+      {
+        "name": "id",
+        "value": "btn-theme"
+      },
+      {
+        "name": "data-theme",
+        "value": "light"
+      }
+    ],
+    "text": "Dark"
   },
   {
     "key": "btn-group",
